@@ -53,8 +53,6 @@ const createUrl = async (req, res) => {
           urlCode: url.urlCode,
           shortUrl: url.shortUrl,
           longUrl: longUrl
-
-
         })
       );
       return res.status(200).send({
@@ -72,12 +70,11 @@ const createUrl = async (req, res) => {
 
     const shortUrl = `http://localhost:3000/${urlCode}`;
 
+    req.body.urlCode= urlCode
+    req.body.shortUrl= shortUrl
+
     // creating entries in db
-    const data = await urlModel.create({
-      urlCode,
-      longUrl,
-      shortUrl,
-    });
+    const data = await urlModel.create(req.body);
 
     // adding longUrl in redis
     await SETEX_ASYNC(
@@ -92,11 +89,7 @@ const createUrl = async (req, res) => {
 
     return res.status(201).send({
       status: true,
-      data: {
-        urlCode,
-        longUrl,
-        shortUrl,
-      },
+      data: data
     });
   }
   catch (error) {
@@ -122,7 +115,7 @@ const getUrl = async (req, res) => {
       return res.status(302).redirect(JSON.parse(cachedUrl).longUrl);
     }
     // if not present in redis then searching in db
-    const url = await urlModel.findOne({ urlCode });
+    const url = await urlModel.findOne({ urlCode: urlCode});
 
     if (!url) {
       return res.status(404).json({
