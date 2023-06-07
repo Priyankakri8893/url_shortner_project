@@ -1,0 +1,26 @@
+{
+  "name": "url_shortner_project",
+  "version": "1.0.0",
+  "description": "url shortner project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0  <17.0.0"
+  },
+  "author": "Priyanka",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.1.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2",
+    "nanoid": "^3.3.6",
+    "nodemon": "^2.0.22",
+    "redis": "^3.0.0",
+    "response-time": "^2.3.2",
+    "valid-url": "^1.0.9"
+  }
+}
