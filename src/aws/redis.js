@@ -1,8 +1,7 @@
 const redis = require('redis');
 
 // Load environment variables from .env file
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 
 const { promisify } = require('util');
 
