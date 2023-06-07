@@ -5,14 +5,17 @@ const app = express();
 
 const route = require("./routes/route")
 
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 
-mongoose.connect(process.env.MONGO_URI).then(
-    console.log('mongodb is connnected')
-).catch(
-    err => { console.error(err.message) }
-)
+mongoose.connect(process.env.MONGO_URI, 
+    { useNewUrlParser: true})
+  .then(() => {
+    console.log('MongoDB is connected');
+  })
+  .catch((err) => {
+    console.error(err.message);
+  });
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
