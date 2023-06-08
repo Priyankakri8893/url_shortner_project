@@ -41,7 +41,7 @@ const createUrl = async (req, res) => {
 
     // finding in db
     let url = await urlModel.findOne({
-      longUrl: longUrl,
+      longUrl: longUrl
     });
     if (url) {
 
@@ -57,8 +57,7 @@ const createUrl = async (req, res) => {
       );
       return res.status(200).send({
         status: true,
-        message: "Already available",
-        shortUrl: url.shortUrl,
+        data: url
       });
     }
 
