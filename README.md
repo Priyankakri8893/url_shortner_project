@@ -1,4 +1,5 @@
 # url_shortner_project
+The URL Shortener Project aims to create a scalable web application that generates shorter aliases for long URLs. Users can create short links, redirect to the original URL, and track individual links. The project also includes implementing caching for enhanced performance. 
 
 ## Scalable URL Shortner Project Requirement
 
@@ -25,11 +26,6 @@ Some of the use cases for URL shortening is to optimise links shared across user
 
 If you haven’t used tinyurl.com before, please try creating a new shortened URL and spend some time going through the various options their service offers. This will help you have a little context to the problem we solve through this project.
 
-### Key points
-- Create a group database `groupXDatabase`. You can clean the db you previously used and reuse that.
-- This time each group should have a *single git branch*. Coordinate amongst yourselves by ensuring every next person pulls the code last pushed by a team mate. You branch will be checked as part of the demo. Branch name should follow the naming convention `project/urlShortnerGroupX`
-- Follow the naming conventions exactly as instructed. The backend code will be integrated with the front-end application which means any mismatch in the expected request body will lead to failure in successful integration.
-
 ### Models
 - Url Model
 ```
@@ -50,10 +46,9 @@ If you haven’t used tinyurl.com before, please try creating a new shortened UR
 - Return HTTP status 400 for an invalid request
 
 ## Testing 
-- To test these apis create a new collection in Postman named Project 2 Url Shortner
+- To test these apis create a new collection in Postman 
 - Each api should have a new request in this collection
 - Each request in the collection should be rightly named. Eg  Url shorten, Get Url etc
-- Each member of each team should have their tests in running state
 
 ## Phase II
 
